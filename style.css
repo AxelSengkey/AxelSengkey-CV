@@ -1,0 +1,752 @@
+/* ALL */
+
+/* "box-sizing: border-box;" is used to make the total width and height of an element not be effected by border and padding, 
+so that (for example) if i use a 100px width of div with 10px padding, the total width will be stay on 100px,
+and it is easier to manage. This is applied to all the selectors in this css */
+* {
+  box-sizing: border-box;
+}
+/*  */
+
+/* This is used to smoothly animate the scroll position when clicking a link to a section inside the web */
+html {
+  scroll-behavior: smooth;
+}
+/*  */
+
+/* BODY */
+
+/* This is used for styling the body */
+body {
+  margin: 0;
+  color: #0f0a3c;
+  font-family: "Montserrat Alternates", "Century Gothic", sans-serif;
+}
+/*  */
+
+/* This is used to make a background with two images that appear alternately. The "z-index: -1;" is to make the #background backward */
+#background {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  z-index: -1;
+  animation: tes 1s infinite;
+}
+
+/* For the background animation */
+@keyframes tes {
+  0% {
+    background-image: url("images/1.jpg");
+  }
+  50% {
+    background-image: url("images/2.jpg");
+  }
+  100% {
+    background-image: url("images/1.jpg");
+  }
+}
+/*  */
+
+/* This is used for the body other than the background image */
+#body {
+  background: linear-gradient(
+    to top,
+    rgba(0, 204, 116, 80%) 0%,
+    rgba(88, 147, 212, 80%) 100%
+  );
+}
+/*  */
+
+/* Heading style in general */
+h1 {
+  margin: 10px auto 10px;
+  font-family: "Piazzolla", "Garamond", serif;
+  font-size: 5rem;
+  text-shadow: 0 0 40px white;
+  animation: blink 0.7s 2;
+}
+
+h2 {
+  color: #07456f;
+  animation: blink 0.7s 2;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 75%;
+  }
+  25% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 50%;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+/*  */
+
+/* Anchor tag style in general */
+a {
+  color: #0f0a3c;
+  text-decoration: none;
+}
+/*  */
+
+/* HEADER */
+
+/* For styling the header */
+.content.header {
+  color: #cdffeb;
+  padding: 20px;
+  text-align: center;
+  height: 580px;
+}
+/*  */
+
+/* Logo */
+.logo {
+  position: fixed;
+  top: 10px;
+  left: 20px;
+  width: 7.5%;
+  border-radius: 100%;
+  z-index: 2;
+}
+/*  */
+
+/* For the 2 lines/slashes in the header */
+.line1 {
+  position: absolute;
+  top: 10%;
+  left: 15%;
+  border-left: 6px solid #cdffeb;
+  border-radius: 1000px;
+  height: 10%;
+  transform: rotate(45deg);
+}
+
+.line2 {
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  border-left: 6px solid #cdffeb;
+  border-radius: 1000px;
+  height: 20%;
+  transform: rotate(45deg);
+}
+/*  */
+
+/* For the words in header */
+.title {
+  margin: 10% auto 0;
+}
+/*  */
+
+/* Downloadable Resume */
+.download {
+  background: linear-gradient(to bottom, #1f3c88 0%, #07456f 100%);
+  border-radius: 20px;
+  color: white;
+  padding: 20px;
+  text-shadow: 0 1px 20px #ffffff;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  top: 50px;
+  opacity: 50%;
+  transition: color 1s, box-shadow 1s, opacity 1s;
+}
+
+.download:hover {
+  background: linear-gradient(to bottom, #ceddef 0%, white 100%);
+  color: #5893d4;
+  box-shadow: 0 10px 20px white;
+  opacity: 100%;
+  transition: color 1s, box-shadow 1s, opacity 1s;
+}
+/*  */
+
+/* NAV BAR */
+
+/* For the navigation bar */
+.sidenav {
+  font-size: 1vw;
+  position: fixed;
+  top: 0;
+  width: 10%;
+  height: 100%;
+  z-index: 1;
+  opacity: 70%;
+  transition: box-shadow 0.5s;
+}
+
+.sidenav:hover {
+  opacity: 100%;
+  box-shadow: 0 0 50px #07456f inset;
+}
+
+/* "top: 50%;" and "transform: translateY(-50%);" is used to make the list vertically centered */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  text-align: right;
+  position: relative;
+  top: 50%;
+  transform: translateY(-45%);
+}
+
+/* Transition is used so that changes during hover do not just happen, but with a transition. */
+li a {
+  display: block;
+  color: #cdffeb;
+  padding: 8px 16px;
+  margin: 30% 0 30%;
+  border-radius: 0 1000px 1000px 0;
+  transition: border-radius 0.1s, color 1s, font-size 1s, box-shadow 1s;
+}
+
+li a.start {
+  background-color: #07456f;
+  color: #ceddef;
+}
+
+/* :not() is to make an exception to specific element */
+li a:hover:not(.start) {
+  background: linear-gradient(to left, #ceddef 0%, transparent 100%);
+  color: #1f3c88;
+  font-size: 110%;
+  border-radius: 0 100% 100% 0;
+  box-shadow: 0 0 50px white;
+}
+
+li a.start:hover {
+  background: linear-gradient(to left, #1f3c88 0%, transparent 100%);
+  color: #cdffeb;
+  font-size: 110%;
+  border-radius: 0 100% 100% 0;
+  box-shadow: 0 0 50px #cdffeb;
+}
+/*  */
+
+/* CONTENT */
+
+/* For every element with class="content" (content header, content main, and content footer) */
+.content {
+  margin-left: 10%;
+  padding: 1px 16px;
+}
+/*  */
+
+/* For the main content */
+.content.main {
+  line-height: 3;
+  background-color: rgba(255, 255, 255, 30%);
+  box-shadow: 0 25px 50px #07456f;
+}
+/*  */
+
+/* classs="row" */
+.row {
+  padding-left: 5%;
+}
+/*  */
+
+/* For every element with class="column" inside classs="row" (column main and column side) */
+.column {
+  float: left;
+  padding: 10px;
+}
+/*  */
+
+/* For the main column */
+.column.main {
+  margin-right: 5%;
+  width: 75%;
+}
+/*  */
+
+/* For the images inside main column (profile, book, laptop, and socmed). They will have an interesting animation */
+.img {
+  width: 150px;
+  border-radius: 100%;
+  animation: image 2s infinite;
+}
+
+/* For the images' animation */
+@keyframes image {
+  0% {
+    border-radius: 100%;
+  }
+  50% {
+    border-radius: 15%;
+  }
+  100% {
+    border-radius: 100%;
+  }
+}
+
+.profile {
+  width: 350px;
+  float: left;
+  margin-left: 30px;
+  margin-right: 10px;
+}
+
+.book {
+  float: right;
+  margin-right: 30px;
+}
+
+.laptop {
+  float: left;
+  margin-left: 30px;
+}
+
+.socmed {
+  float: right;
+  margin-right: 30px;
+}
+/*  */
+
+/* This is for every element with class="part". They are sections that linked by id to the nav bar. */
+.part {
+  margin: 100px auto 200px;
+  padding: 50px 0 50px;
+  transition: border-radius 1s, box-shadow 1s;
+}
+
+/* Odd */
+.part.odd {
+  background: linear-gradient(to right, white 25%, transparent 100%);
+  border-radius: 20px 0 0 20px;
+  text-align: left;
+}
+
+/* Even */
+.part.even {
+  background: linear-gradient(to left, white 25%, transparent 100%);
+  border-radius: 0 20px 20px 0;
+  text-align: right;
+}
+
+/* Hover effect */
+.part:hover {
+  box-shadow: 0 50px 50px white;
+  border-radius: 20px;
+}
+/*  */
+
+/* For the content of the sections */
+.part.odd div {
+  margin-left: 200px;
+}
+
+.part.even div {
+  margin-right: 200px;
+}
+/*  */
+
+/* For the specified heading in About Me section */
+#about h2 {
+  color: #1f3c88;
+  font-size: 2rem;
+}
+/*  */
+
+/* For hover effect on anchor tags specifically inside class="part" */
+.part a:hover {
+  color: #009f9d;
+  font-size: 1.2rem;
+}
+/*  */
+
+/* For the skill section */
+table {
+  padding: 10px;
+  border-left: 2px solid #ceddef;
+}
+
+table td {
+  line-height: 1.5;
+  padding: 10px 0 50px;
+  border-top: 2px solid #ceddef;
+  text-align: right;
+}
+
+table img {
+  width: 13vw;
+}
+
+.skill-name {
+  background: linear-gradient(to right, #cdffeb 0%, transparent 100%);
+  border: 1px solid white;
+  box-shadow: 0 0 10px white;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  margin: 0 !important;
+}
+
+.point {
+  width: 15vw;
+  background: linear-gradient(to left, #ceddef 0%, transparent 100%);
+  border: 1px solid white;
+  box-shadow: 0 0 10px white;
+  border-radius: 0 5px 5px 0;
+  margin: 0 !important;
+}
+
+.progress-bar {
+  height: 24px;
+  border-radius: 0 5px 5px 0;
+  margin: 0 !important;
+}
+
+.html-css-js {
+  width: 90%;
+  background-color: #009f9d;
+}
+
+.c {
+  width: 30%;
+  background-color: #1f3c88;
+}
+
+.digital-art {
+  width: 100%;
+  background-color: #009f9d;
+}
+
+.design {
+  width: 100%;
+  background-color: #1f3c88;
+}
+
+.english {
+  width: 80%;
+  background-color: #009f9d;
+}
+
+.japanese {
+  width: 10%;
+  background-color: #1f3c88;
+}
+/*  */
+
+/* For horizontal lines in main column */
+.column.main hr {
+  border-style: none;
+  width: 50%;
+  border-top: 5px dashed #cdffeb;
+  margin-bottom: 100px;
+}
+/*  */
+
+/* For horizontal lines inside sections */
+.column.main .part-hr {
+  border-style: none;
+  width: auto;
+  margin: auto;
+  border-top: 2px solid #ceddef;
+}
+
+.part-hr.about {
+  margin-bottom: 50px !important;
+  border-top: 2px solid #009f9d !important;
+}
+
+.hr-odd {
+  transform: rotate(-10deg);
+}
+
+.hr-even {
+  transform: rotate(10deg);
+}
+/*  */
+
+/* For the side column */
+.column.side {
+  text-align: right;
+  background-color: #cdffeb;
+  width: 20%;
+  border-radius: 20px;
+  top: 0;
+  overflow: auto;
+  transition: box-shadow 0.5s;
+}
+
+.column.side:hover {
+  box-shadow: 0 0 10px white;
+}
+/*  */
+
+/* For the specified heading in side column */
+.column.side h2 {
+  color: #009f9d;
+}
+/*  */
+
+/* For horizontal lines in side column */
+.column.side hr {
+  border-style: none;
+  border-top: 2px solid #ceddef;
+}
+/*  */
+
+/* For the sample gallery's hover effect */
+.sample {
+  margin: 50px auto 50px;
+  width: 100%;
+}
+
+.sample:hover {
+  opacity: 50%;
+  border: 1px solid #009f9d;
+}
+/*  */
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/*  */
+
+/* FOOTER */
+
+/* For styling the header */
+.content.footer {
+  color: #cdffeb;
+  padding: 50px 50px 10px;
+  text-align: center;
+  line-height: 3;
+}
+/*  */
+
+/* For anchor tags inside footer */
+.footer a {
+  color: #cdffeb;
+  margin: auto 20px auto;
+}
+
+/* For hover effect on anchor tags specifically inside footer */
+.footer a:hover {
+  color: #1f3c88;
+}
+/*  */
+
+/* For paragraph tags inside footer */
+.footer p {
+  font-size: 0.75rem;
+}
+/*  */
+
+/* For Copyright */
+.footer .copyright {
+  margin-bottom: 50px;
+}
+
+.footer img {
+  width: 70px;
+  position: relative;
+  top: 25px;
+}
+/*  */
+
+/* For Image & Icon Sources */
+.footer .image-sources,
+.footer .icon-sources {
+  font-size: 0.5rem;
+  line-height: 1;
+}
+/*  */
+
+/* RESPONSIVE */
+
+/* This is used to make a responsive web */
+@media screen and (max-width: 600px) {
+  /* BODY */
+
+  /* This is used for styling the body */
+  body {
+    text-align: center;
+  }
+  /*  */
+
+  /* This is used for the body other than the background image */
+  #body {
+    background: linear-gradient(
+      to top,
+      rgba(0, 204, 116, 80%) 0%,
+      rgba(88, 147, 212, 80%) 100%
+    );
+  }
+  /*  */
+
+  /* HEADER */
+
+  /* For styling the header */
+  .content.header {
+    height: 650px;
+  }
+
+  /* Logo */
+  .logo {
+    position: relative;
+    left: 0;
+    width: 100px;
+    border-radius: 100%;
+  }
+  /*  */
+
+  /* For the words in header */
+  .title {
+    margin: 1% auto 0;
+  }
+  /*  */
+
+  /* NAV BAR */
+
+  /* For the navigation bar */
+  .sidenav {
+    font-size: 2vw;
+    width: 100%;
+    height: auto;
+    position: sticky;
+    text-align: center;
+    background-color: #5893d4;
+    box-shadow: 0 10px 100px #07456f;
+    border-radius: 0 0 1000px 1000px;
+  }
+
+  .sidenav:hover {
+    box-shadow: 0 0 50px white;
+  }
+
+  /* "top: 0;" and "transform: none;" is used to make the list not vertically centered */
+  ul {
+    top: 0;
+    transform: none;
+  }
+
+  li a {
+    float: right;
+    color: #cdffeb;
+    margin: auto;
+    border-radius: 0 0 1000px 1000px;
+    transition: color 1s;
+    display: inline;
+  }
+
+  li a:hover:not(.start) {
+    background: linear-gradient(to top, #ceddef 0%, transparent 100%);
+    color: #1f3c88;
+    font-size: 100%;
+    border-radius: 0 0 1000px 1000px;
+  }
+
+  li a.start:hover {
+    background: linear-gradient(to top, #1f3c88 0%, transparent 100%);
+    color: #cdffeb;
+    font-size: 100%;
+    border-radius: 0 0 1000px 1000px;
+  }
+  /*  */
+
+  /* CONTENT */
+
+  /* For every element with class="content" (content header, content main, and content footer) */
+  .content {
+    margin-left: 0;
+  }
+  /*  */
+
+  /* classs="row" */
+  .row {
+    padding-left: 0;
+  }
+  /*  */
+
+  /* For the main column */
+  .column.main {
+    width: 100%;
+  }
+  /*  */
+
+  /* For the images inside main column (profile, book, laptop, and socmed). They will have an interesting animation */
+  .img {
+    margin: auto;
+    float: none;
+  }
+  /*  */
+
+  /* This is for every element with class="part". They are sections that linked by id to the nav bar. */
+  .part {
+    margin: 100px auto 200px;
+    padding: 50px 0 50px;
+  }
+
+  /* Odd */
+  .part.odd {
+    background: linear-gradient(to bottom, white 25%, transparent 100%);
+    border-radius: 1000px 1000px 0 0;
+    text-align: center;
+  }
+
+  /* Even */
+  .part.even {
+    background: linear-gradient(to bottom, white 25%, transparent 100%);
+    border-radius: 1000px 1000px 0 0;
+    text-align: center;
+  }
+  /*  */
+
+  /* For the content of the sections */
+  .part.odd div {
+    margin: auto 5px auto;
+  }
+
+  .part.even div {
+    margin: auto 5px auto;
+  }
+
+  /* Hover effect */
+  .part:hover {
+    box-shadow: 0 0 50px white;
+    border-radius: 20px;
+  }
+  /*  */
+
+  /* For the skill section */
+  table {
+    text-align: left;
+    margin: 0 auto 0;
+    border-left: 2px solid #ceddef;
+    border-right: 2px solid #ceddef;
+  }
+  /*  */
+
+  /* For the side column */
+  .column.side {
+    width: 100%;
+  }
+  /*  */
+
+  /* FOOTER */
+
+  /* For paragraph tags inside footer */
+  .footer p {
+    font-size: 0.7rem;
+  }
+  /*  */
+}
